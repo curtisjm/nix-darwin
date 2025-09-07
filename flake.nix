@@ -39,7 +39,10 @@
                         pkgs.cargo
                         pkgs.rustc
                         pkgs.docker
+                        pkgs.docker-compose
+                        pkgs.colima
                         pkgs.stow
+                        pkgs.skimpdf
                     ];
 
                     system.primaryUser = "curtis";
@@ -51,7 +54,9 @@
 
                     homebrew = {
                         enable = true;
-                        brews = [ "node" ];
+                        brews = [ 
+                            "node" 
+                        ];
                         casks = [
                             "arc"
                             "discord"
@@ -60,6 +65,12 @@
                             "ghostty"
                             "raycast"
                             "proton-pass"
+                            "protonvpn"
+                            "parallels"
+                            # "mactex-no-gui"
+                            "mactex"
+                            "cleanshot"
+                            "clion"
                         ];
                         taps = [ ];
                         masApps = { };
@@ -69,15 +80,20 @@
                     };
 
                     system.defaults = {
-                        dock.autohide = true;
-                        dock.persistent-apps = [ ];
-                        dock.tilesize = 50;
+                        dock = { 
+                            autohide = true;
+                            persistent-apps = [ ];
+                            tilesize = 50;
+                        };
                         loginwindow.GuestEnabled = false;
-                        NSGlobalDomain.AppleICUForce24HourTime = true;
-                        NSGlobalDomain.AppleInterfaceStyle = "Dark";
-                        NSGlobalDomain.KeyRepeat = 2;
-                        NSGlobalDomain.InitialKeyRepeat = 12;
-                        NSGlobalDomain.ApplePressAndHoldEnabled = false;
+                        NSGlobalDomain = {
+                            AppleShowAllFiles = true;
+                            AppleICUForce24HourTime = true;
+                            AppleInterfaceStyle = "Dark";
+                            KeyRepeat = 2;
+                            InitialKeyRepeat = 12;
+                            ApplePressAndHoldEnabled = false;
+                        };
                         finder.AppleShowAllExtensions = true;
                         CustomUserPreferences = {
                             "com.apple.symbolichotkeys" = {
@@ -90,6 +106,20 @@
                             };
                         };
                     };
+
+                    # programs.zsh = {
+                    #     enable = true;
+                    #     autosuggestions.enable = true;
+                    #     syntaxHighlighting.enable = true;
+                    #     ohMyZsh = {
+                    #         enable = true;
+                    #         theme = "robbyrussell";
+                    #         plugins = [
+                    #             "git"
+                    #             "vi-mode"
+                    #         ];
+                    #     };
+                    # };
 
                     nixpkgs.config.allowUnfree = true;
 
