@@ -43,6 +43,7 @@
                         pkgs.colima
                         pkgs.stow
                         pkgs.skimpdf
+                        pkgs.tree
                     ];
 
                     system.primaryUser = "curtis";
@@ -107,20 +108,7 @@
                         };
                     };
 
-                    # programs.zsh = {
-                    #     enable = true;
-                    #     autosuggestions.enable = true;
-                    #     syntaxHighlighting.enable = true;
-                    #     ohMyZsh = {
-                    #         enable = true;
-                    #         theme = "robbyrussell";
-                    #         plugins = [
-                    #             "git"
-                    #             "vi-mode"
-                    #         ];
-                    #     };
-                    # };
-
+                    
                     nixpkgs.config.allowUnfree = true;
 
                     fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
